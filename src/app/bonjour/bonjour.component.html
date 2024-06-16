@@ -1,0 +1,36 @@
+<!-- bonjour.component.html -->
+
+<div class="container">
+  <div class="form-group">
+    <label for="name">Nom :</label>
+    <input id="name" [(ngModel)]="name" (input)="updateText()" placeholder="Entrez votre nom" />
+  </div>
+
+  <div class="form-group">
+    <label for="font">Police de caractère :</label>
+    <select id="font" [(ngModel)]="font" (change)="updateText()">
+      <option *ngFor="let f of fonts" [value]="f">{{ f }}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="size">Taille de police :</label>
+    <input id="size" type="number" [(ngModel)]="fontSize" (input)="updateText()" placeholder="Taille de police" />
+  </div>
+
+  <div class="align-options">
+    <label>
+      <input type="radio" name="alignment" value="left" [(ngModel)]="alignment" (change)="updateText()" /> Gauche
+    </label>
+    <label>
+      <input type="radio" name="alignment" value="center" [(ngModel)]="alignment" (change)="updateText()" /> Centre
+    </label>
+    <label>
+      <input type="radio" name="alignment" value="right" [(ngModel)]="alignment" (change)="updateText()" /> Droite
+    </label>
+  </div>
+
+  <div class="display-text" [ngStyle]="styles">
+    Bonjour {{ name.toUpperCase() }} !
+  </div>
+</div>
